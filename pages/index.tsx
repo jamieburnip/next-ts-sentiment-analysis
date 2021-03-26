@@ -12,7 +12,7 @@ type Results = 'Positive' | 'Neutral' | 'Negative';
 export default function Home() {
   const [result, setResult] = useState<Results>('Neutral');
   const { register, handleSubmit, formState, errors } = useForm<Inputs>({ mode: 'onChange' });
-  const { isDirty, isValid } = formState;
+  const { isValid } = formState;
 
   const onSubmit = async (data: Inputs) => {
     const Sentiment = new sentiment();
