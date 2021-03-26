@@ -1,5 +1,5 @@
 {
-  "name": "trivia-game",
+  "name": "next-ts-sentiment-analysis",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,11 +9,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@reach/skip-nav": "^0.13.2",
     "classnames": "^2.2.6",
     "next": "10.0.9",
-    "nprogress": "^0.2.0",
-    "prop-types": "^15.7.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hook-form": "^6.15.5",
@@ -26,10 +23,8 @@
     "@testing-library/react": "^11.2.5",
     "@types/classnames": "^2.2.11",
     "@types/node": "^14.14.35",
-    "@types/nprogress": "^0.2.0",
-    "@types/prop-types": "^15.7.3",
-    "@types/reach__skip-nav": "^0.1.1",
     "@types/react": "^17.0.3",
+    "@types/sentiment": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "autoprefixer": "^10.2.5",
