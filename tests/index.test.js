@@ -34,6 +34,12 @@ describe('Form behaviour', () => {
   });
 
   it('should submit when form inputs contain text', async () => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve({ result: 'Positive' })
+      })
+    );
+
     const { getByTestId, queryByText, getByLabelText } = render(<App />);
     let expectedMessage = `This product is awesome!`;
 
@@ -49,6 +55,12 @@ describe('Form behaviour', () => {
   });
 
   it('message is analysed as positive', async () => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve({ result: 'Positive' })
+      })
+    );
+
     const { getByTestId, queryByText, getByLabelText } = render(<App />);
     let expectedMessage = `This product is awesome!`;
 
@@ -64,6 +76,12 @@ describe('Form behaviour', () => {
   });
 
   it('message is analysed as neutral', async () => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve({ result: 'Neutral' })
+      })
+    );
+
     const { getByTestId, queryByText, getByLabelText } = render(<App />);
     let expectedMessage = `This product is okay`;
 
@@ -79,6 +97,12 @@ describe('Form behaviour', () => {
   });
 
   it('message is analysed as negative', async () => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve({ result: 'Negative' })
+      })
+    );
+
     const { getByTestId, queryByText, getByLabelText } = render(<App />);
     let expectedMessage = `This product is terrible and I'll never order again!`;
 

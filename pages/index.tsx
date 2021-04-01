@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import cn from 'classnames';
-import sentiment from 'sentiment';
 
 type Inputs = {
   message: string;
@@ -15,10 +14,19 @@ export default function Home() {
   const { isValid } = formState;
 
   const onSubmit = async (data: Inputs) => {
-    const Sentiment = new sentiment();
-    const sentimentScore = await Sentiment.analyze(data.message).score;
+    const res = await fetch('http://localhost:3000/api/analyse', {
+      body: JSON.stringify({
+        text: data.message
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST'
+    });
 
-    setResult(sentimentScore > 0 ? 'Positive' : sentimentScore === 0 ? 'Neutral' : 'Negative');
+    const resJson = await res.json();
+
+    setResult(resJson.result);
   };
 
   return (
